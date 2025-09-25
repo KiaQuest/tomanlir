@@ -23,7 +23,7 @@
 @auth()
 
     <a href="{{ route('profile') }}">Profile</a><br>
-    <a href="{{ route('profile') }}">Wallet</a><br>
+    <a href="{{ route('wallet') }}">Wallet</a><br>
     <a href="{{ route('profile') }}">Order</a><br>
 {{--    <a href="{{ route('XXX') }}">XXX</a><br>--}}
     <a href="{{ route('profile') }}">Token</a><br>
@@ -44,6 +44,11 @@
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
+    </div>
+@endif
+@if (session('increase'))
+    <div class="alert alert-success">
+        {{ session('increase') }}
     </div>
 @endif
 

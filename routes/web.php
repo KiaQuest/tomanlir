@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\WalletController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,13 +30,17 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::get('/profile-edit',[userController::class,'edit'])->name('profile.edit');
     Route::post('/profile-edit',[userController::class,'update'])->name('profile.edit.action');
 
-    Route::get('/wallet',[userController::class,'show'])->name('profile');
+    Route::get('/wallet',[WalletController::class,'index'])->name('wallet');
+    Route::get('/wallet-increase',[WalletController::class,'indexIncrease'])->name('wallet.increase');
+    Route::post('/wallet-increase/key',[WalletController::class,'indexIncrease2'])->name('wallet.increase2');
 //    Route::get('/profile-edit',[userController::class,'edit'])->name('profile.edit');
-//    Route::post('/profile-edit',[userController::class,'update'])->name('profile.edit.action');
+    Route::post('/wallet-action',[WalletController::class,'create'])->name('wallet.increase.action');
 
 });
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/admin',[AdminController::class,'index'])->name('admin');
+Route::get('/login',[AdminController::class,'login'])->name('admin.login.action');
 //Route::get('/', function () {})->name('home');
 
 
