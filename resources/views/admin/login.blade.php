@@ -4,8 +4,8 @@ admin login page
 
 {{--@guest--}}
 
-<form action="{{ route('admin.login.action') }}" method="GET">
-{{--    @csrf--}}
+<form action="{{ route('admin.login.action2') }}" method="post">
+    @csrf
     <div>
 {{--        <label for="username">Username:</label>--}}
         <input type="username" name="username" id="username" required>
