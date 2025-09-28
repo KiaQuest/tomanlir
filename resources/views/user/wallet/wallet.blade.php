@@ -65,9 +65,13 @@
         @foreach($orders as $order)
 
             <tr>
-                <td>{{ $order->amount }}</td>
-                <td>{{ $order->time }}</td>
-                <td>{{ $order->verify }}</td>
+                @if($order->key == 1)
+                    <td>{{ \Illuminate\Support\Number::currency($order->amount, 'IRR', 'ir')  }}</td>
+                @else
+                    <td>{{ \Illuminate\Support\Number::currency($order->amount, 'TRY', 'tr')  }}</td>
+                @endif
+                <td>{{ substr($order->time, 0, 2) . ':' . substr($order->time, 2, 2) }}</td>
+                <td>{{ $order->verify }} verify nashode</td>
             </tr>
 
         @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Payment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -27,7 +28,7 @@ class AdminController extends Controller
             $data = Payment::where('verify' , 0)->get();
 //            dd($data);
             return view('admin.unverifies' , compact('data'));
-            dd(session()->all());
+//            dd(session()->all());
         }else{
             dd('no');
         }
@@ -37,6 +38,18 @@ class AdminController extends Controller
 
     public function verification(Request $request)
     {
-        dd($request->all());
+//        dd(\session()->all());
+        $row = Payment::find($request->id);
+
+        if ($row->key == 1){
+            User::where('id', $row->user_id)->increment('ircharge', $row->amount);
+
+        }else{
+            User::where('id', $row->user_id)->increment('trcharge', $row->amount);
+
+        }
+        Payment::where('id' , $request->id)->update(['verify' => 1]);
+        return redirect()->back()->with('action' , 'action Done');
+//        dd($request->id);
     }
 }

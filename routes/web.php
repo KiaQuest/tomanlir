@@ -41,8 +41,8 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/admin',[AdminController::class,'index'])->name('admin');
 //Route::post('/login',[AdminController::class,'login'])->name('admin.login.action');
-Route::post('/login2',[AdminController::class,'login2'])->name('admin.login.action2');
-Route::post('/verification',[AdminController::class,'verification'])->name('verification');
+Route::get('/login2',[AdminController::class,'login2'])->name('admin.login.action2');
+Route::get('/verification',[AdminController::class,'verification'])->name('verification');
 //Route::get('/', function () {})->name('home');
 
 
