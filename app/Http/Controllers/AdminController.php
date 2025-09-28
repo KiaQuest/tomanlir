@@ -26,8 +26,8 @@ class AdminController extends Controller
             Session::put('admin', 'authed');
 
             $data = Payment::where('verify' , 0)->get();
-//            dd($data);
-            return view('admin.unverifies' , compact('data'));
+            $data2 = User::where('verify' , 0)->get();
+            return view('admin.unverifies' , compact('data' , 'data2'));
 //            dd(session()->all());
         }else{
             dd('no');
@@ -52,4 +52,12 @@ class AdminController extends Controller
         return redirect()->back()->with('action' , 'action Done');
 //        dd($request->id);
     }
+
+    public function user_verification(Request $request)
+    {
+        User::where('id', $request->id)->update(['verify' => 1]);
+        return redirect()->back()->with('action' , 'action Done');
+    }
+
+
 }
