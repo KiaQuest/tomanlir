@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class OrderController extends Controller
 {
@@ -12,15 +14,24 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::where('active' , 0)->where('user_id' , Auth::user()->id)->get();
+        return view('user.order.order' , compact('orders'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $request->request->remove('_token');
+        $request->request->remove('submit');
+        $request->request->add(['user_id' => Auth::user()->id]);
+
+//        dd($request->all());
+        Order::create($request->all());
+        return Redirect::back()->with('order' , 'added');
+//        dd($request->all());
     }
 
     /**

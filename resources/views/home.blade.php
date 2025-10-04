@@ -24,7 +24,7 @@
 
     <a href="{{ route('profile') }}">Profile</a><br>
     <a href="{{ route('wallet') }}">Wallet</a><br>
-    <a href="{{ route('profile') }}">Order</a><br>
+    <a href="{{ route('order') }}">Order</a><br>
 {{--    <a href="{{ route('XXX') }}">XXX</a><br>--}}
     <a href="{{ route('profile') }}">Token</a><br>
     <a href="{{ route('profile') }}">Bardasht</a><br>

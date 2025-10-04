@@ -41,7 +41,7 @@
         Kia Bank Saman
         <br><br>
         <form action="{{ route('wallet.increase2' , ['key' => 2] ) }}" method="post">
-            <label for="vahed">vahed</label>
+            <label for="vahed">vahed</label>**
             <input type="text" name="vahed" id="vahedid2">
             <input type="submit" value="Submit">
             @csrf

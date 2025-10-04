@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\WalletController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +37,8 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
 //    Route::get('/profile-edit',[userController::class,'edit'])->name('profile.edit');
     Route::post('/wallet-action',[WalletController::class,'create'])->name('wallet.increase.action');
 
-    Route::get('/order',[WalletController::class,'create'])->name('wallet.increase.action');
+    Route::get('/order',[OrderController::class,'index'])->name('order');
+    Route::post('/order{?key}',[OrderController::class,'create'])->name('order.action');
 
 });
 
