@@ -34,6 +34,11 @@
             {{ session('order') }}
         </div>
     @endif
+    @if (session('action'))
+        <div class="alert alert-success">
+            {{ session('action') }}
+        </div>
+    @endif
     <br>
 your orders
 
@@ -70,7 +75,8 @@ your orders
 
                         <td>{{ \Illuminate\Support\Number::format($order->price)  }}  </td>
 {{--                    <td>{{ substr($order->time, 0, 2) . ':' . substr($order->time, 2, 2) }}</td>--}}
-                    <td>{{ $order->verify }} verify nashode</td>
+
+                    <td><a href="{{ route('order.delete' , [ 'id' => $order->id ]) }}">Delete</a></td>
                 </tr>
 
             @endforeach

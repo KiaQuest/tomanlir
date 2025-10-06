@@ -38,7 +38,9 @@ Route::middleware(['auth', 'auth.session'])->group(function () {
     Route::post('/wallet-action',[WalletController::class,'create'])->name('wallet.increase.action');
 
     Route::get('/order',[OrderController::class,'index'])->name('order');
-    Route::post('/order{?key}',[OrderController::class,'create'])->name('order.action');
+    Route::post('/order',[OrderController::class,'create'])->name('order.action');
+    Route::get('/order-delete',[OrderController::class,'destroy'])->name('order.delete');
+    Route::get('/order-buy',[OrderController::class,'buy'])->name('order.buy');
 
 });
 

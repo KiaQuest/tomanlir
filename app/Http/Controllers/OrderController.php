@@ -37,6 +37,10 @@ class OrderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    public function buy(Request $request)
+    {
+        dd($request->all());
+    }
     public function store(Request $request)
     {
         //
@@ -69,8 +73,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        //
+        Order::where('id' , $request->id )->update(['active' => 1]);
+        return redirect()->back()->with('action' , 'done');
+        dd($request->all());
     }
 }

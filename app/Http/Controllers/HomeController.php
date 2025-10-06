@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,10 @@ class HomeController extends Controller
 
 
 //        session()->flash('success', 'dwm');
-        return view('home');
+
+        $data1 = Order::where('active' , 0)->where('key' , 1)->get();
+        $data2 = Order::where('active' , 0)->where('key' , 2)->get();
+        return view('home' , compact('data1' , 'data2'));
 //            return with()0
 //        session(['ww' => 'mm']);
 //        return redirect('/')->with('success','ok KIARASH!');

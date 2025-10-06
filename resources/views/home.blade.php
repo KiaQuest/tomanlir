@@ -15,6 +15,88 @@
 <h1>jadval</h1>
 
 
+<div class="c" style="text-align: center">
+    here
+
+    <style>
+        table, th, td {
+            border:1px solid black;
+            /*width: 10em;*/
+            text-align: center;
+            padding: .4rem;
+        }
+        .ff {
+            /*text-align: center;*/
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+        }
+    </style>
+
+    <br><br>
+
+    <div class="ff">
+        <table>
+            <tr>
+                <th></th>
+                <th>Amount (lira)</th>
+                <th>Price (تومن)</th>
+{{--                <th>Verified</th>--}}
+            </tr>
+            @foreach($data1 as $order)
+
+                <tr>
+{{--                    <td> {{ $order->key == 1 ? "xarid" : "furush" }} </td>--}}
+                    <td> @guest() dokme xarid @endguest
+                         @auth() <a href="{{ route('order.buy' , ['id' => $order->id]) }}">xarid</a> @endauth
+                    </td>
+                    {{--                    <td>{{ \Illuminate\Support\Number::currency($order->amount , in: 'EUR', locale: 'de', precision : 1 ) }} ₺</td>--}}
+                    <td>{{ \Illuminate\Support\Number::format($order->amount , precision : 0  ) }} ₺</td>
+
+                    <td>{{ \Illuminate\Support\Number::format($order->price)  }}  </td>
+                    {{--                    <td>{{ substr($order->time, 0, 2) . ':' . substr($order->time, 2, 2) }}</td>--}}
+
+{{--                    <td><a href="{{ route('order.delete' , [ 'id' => $order->id ]) }}">Delete</a></td>--}}
+{{--                    <td> reserve [{{ $order->user_id }}]</td>--}}
+                </tr>
+
+            @endforeach
+        </table>
+{{--    </div>--}}
+
+{{--    <div class="ff">--}}
+        <table>
+            <tr>
+                <th>Amount (lira)</th>
+                <th>Price (تومن)</th>
+{{--                <th>Verified</th>--}}
+                <th></th>
+            </tr>
+            @foreach($data2 as $order)
+
+                <tr>
+{{--                    <td> {{ $order->key == 1 ? "xarid" : "furush" }} </td>--}}
+
+                    {{--                    <td>{{ \Illuminate\Support\Number::currency($order->amount , in: 'EUR', locale: 'de', precision : 1 ) }} ₺</td>--}}
+                    <td>{{ \Illuminate\Support\Number::format($order->amount , precision : 0  ) }} ₺</td>
+
+                    <td>{{ \Illuminate\Support\Number::format($order->price)  }}  </td>
+                    {{--                    <td>{{ substr($order->time, 0, 2) . ':' . substr($order->time, 2, 2) }}</td>--}}
+
+{{--                    <td><a href="{{ route('order.delete' , [ 'id' => $order->id ]) }}">Delete</a></td>--}}
+{{--                    <td> reserve [{{ $order->user_id }}]</td>--}}
+                    <td> @guest() dokme xarid @endguest
+                        @auth() <a href="{{ route('order.buy' , ['id' => $order->id]) }}">xarid</a> @endauth </td>
+                </tr>
+
+            @endforeach
+        </table>
+    </div>
+
+
+</div>
+
 @guest()
 <a href="{{ route('signup') }}">sign up</a>
 <a href="{{ route('login') }}">Login</a>
