@@ -39,7 +39,23 @@ class OrderController extends Controller
      */
     public function buy(Request $request)
     {
-        dd($request->all());
+        $order = Order::find($request->id);
+        $amount = $order->amount * $order->price;
+//        dd(Auth::user()->ircharge);
+
+        if ($order->key == 1){
+            if (Auth::user()->ircharge - $amount > 0){
+                dd('1 bozogtar');
+            }
+            dd('1 kuchiktar');
+
+        }elseif ($order->key == 2){
+            if (Auth::user()->trcharge - $order->amount > 0){
+                dd('2 bozogtar');
+            }
+            dd('2 kuchiktar');
+        }
+        dd($order->amount * $order->price);
     }
     public function store(Request $request)
     {

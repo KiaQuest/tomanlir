@@ -35,7 +35,10 @@
     </style>
 
     <br><br>
-
+<div class="all" style="display: flex ; justify-content: center">
+    <div style="margin: 0 5rem"><h1>خرید</h1></div>
+    <div style="margin: 0 5rem"><h1>فروش</h1></div>
+</div>
     <div class="ff">
         <table>
             <tr>
@@ -49,7 +52,7 @@
                 <tr>
 {{--                    <td> {{ $order->key == 1 ? "xarid" : "furush" }} </td>--}}
                     <td> @guest() dokme xarid @endguest
-                         @auth() <a href="{{ route('order.buy' , ['id' => $order->id]) }}">xarid</a> @endauth
+                         @auth() <a href="{{ route('order.buy' , ['id' => $order->id]) }}">xarid</a> @endauth {{ $order->user_id }}
                     </td>
                     {{--                    <td>{{ \Illuminate\Support\Number::currency($order->amount , in: 'EUR', locale: 'de', precision : 1 ) }} ₺</td>--}}
                     <td>{{ \Illuminate\Support\Number::format($order->amount , precision : 0  ) }} ₺</td>
@@ -87,7 +90,7 @@
 {{--                    <td><a href="{{ route('order.delete' , [ 'id' => $order->id ]) }}">Delete</a></td>--}}
 {{--                    <td> reserve [{{ $order->user_id }}]</td>--}}
                     <td> @guest() dokme xarid @endguest
-                        @auth() <a href="{{ route('order.buy' , ['id' => $order->id]) }}">xarid</a> @endauth </td>
+                        @auth() <a href="{{ route('order.buy' , ['id' => $order->id]) }}">xarid</a> @endauth  {{ $order->user_id }}</td>
                 </tr>
 
             @endforeach
@@ -114,7 +117,8 @@
     <a href="{{ route('profile') }}">About Us</a><br>
     <a href="{{ route('profile') }}">Statistics</a><br>
     <a href="{{ route('logout') }}">log out</a>
-    {{ \Illuminate\Support\Facades\Auth::user()->username }}
+    {{ \Illuminate\Support\Facades\Auth::user()->username }} username
+    {{ \Illuminate\Support\Facades\Auth::user()->id }} id
 @endauth
 <br>
 @if (session('login'))
