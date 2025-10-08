@@ -27,11 +27,11 @@
 {{--    <h4>iban : {{ $user->iban }}</h4>--}}
 {{--    <h4>ibanname : {{ $user->ibanname }}</h4>--}}
 {{--    <h4>kart : {{ $user->kart }}</h4>--}}
-    <h4>ircharge : {{ $user->ircharge }}  
+    <h4>ircharge : {{ \Illuminate\Support\Number::format($user->ircharge) }}  
         <a href="{{ route('wallet.increase' , ['key' => 1]) }}">
         <button type="submit">+</button></a>
     </h4>
-    <h4>trcharge : {{ $user->trcharge }}  
+    <h4>trcharge : {{ \Illuminate\Support\Number::format($user->trcharge) }}  
         <a href="{{ route('wallet.increase' , ['key' => 2]) }}">
             <button type="submit">†</button></a>
     </h4>

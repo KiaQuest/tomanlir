@@ -24,6 +24,7 @@ class HomeController extends Controller
 
 
             $data1 = Order::where('active' , 0)->where('key' , 1)->get();
+//            $data1 = Order::where('active' , 0)->where('key' , 1)->paginate(1);
             $data2 = Order::where('active' , 0)->where('key' , 2)->get();
         }
 

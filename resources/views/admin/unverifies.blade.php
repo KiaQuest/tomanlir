@@ -7,6 +7,12 @@
 @endif
 unverified orders :
 
+<br>
+@if(session('action'))
+    <div class="alert alert-success" style="text-align: center">
+        {{ session('action') }}
+    </div>
+@endif
 <style>
     table, th, td {
         border:1px solid black;
@@ -23,6 +29,9 @@ unverified orders :
 </style>
 <br><br>
 <div class="ff">
+
+
+
     <table>
         <tr>
             <th>Sender</th>
@@ -74,9 +83,4 @@ unverified orders :
 
 </div>
 
-<br><br><br><br>
-@if(session('action'))
-    <div class="alert alert-success" style="text-align: center">
-        {{ session('action') }}
-    </div>
-@endif
+<br><br><br>

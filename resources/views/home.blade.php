@@ -15,6 +15,24 @@
 <h1>jadval</h1>
 
 
+@if (session('login'))
+    <p style="color: chocolate">{{ session('login') }}</p>
+@endif
+@if (session('signup'))
+    <p style="color: chocolate">{{ session('signup') }}</p>
+@endif
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+@if (session('increase'))
+    <div class="alert alert-success">
+        {{ session('increase') }}
+    </div>
+@endif
+
+
 <div class="c" style="text-align: center">
     here
 
@@ -36,8 +54,8 @@
 
     <br><br>
 <div class="all" style="display: flex ; justify-content: center">
-    <div style="margin: 0 5rem"><h1>خرید</h1></div>
-    <div style="margin: 0 5rem"><h1>فروش</h1></div>
+    <div style="margin: 0 5rem"><h1>خرید</h1><h6>کسانی که میخواهند لیر بخرند</h6></div>
+    <div style="margin: 0 5rem"><h1>فروش</h1><h6>کسانی که لیر برای فروش گذاشته اند</h6></div>
 </div>
     <div class="ff">
         <table>
@@ -66,6 +84,7 @@
 
             @endforeach
         </table>
+{{--        {{ $data1->links() }}--}}
 {{--    </div>--}}
 
 {{--    <div class="ff">--}}
@@ -94,9 +113,15 @@
                 </tr>
 
             @endforeach
+{{--            {{ $data2->links() }}--}}
         </table>
     </div>
 
+    @if (session('tramount'))
+        <div class="alert alert-success">
+            {{ session('tramount') }}
+        </div>
+    @endif
 
 </div>
 
@@ -121,23 +146,6 @@
     {{ \Illuminate\Support\Facades\Auth::user()->id }} id
 @endauth
 <br>
-@if (session('login'))
-    <p style="color: chocolate">{{ session('login') }}</p>
-@endif
-@if (session('signup'))
-    <p style="color: chocolate">{{ session('signup') }}</p>
-@endif
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-@if (session('increase'))
-    <div class="alert alert-success">
-        {{ session('increase') }}
-    </div>
-@endif
-
 
 </body>
 </html>

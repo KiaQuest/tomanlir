@@ -39,6 +39,11 @@
             {{ session('action') }}
         </div>
     @endif
+    @if (session('error1'))
+        <div class="alert alert-success">
+            {{ session('error1') }}
+        </div>
+    @endif
     <br>
 your orders
 
