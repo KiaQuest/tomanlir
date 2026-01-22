@@ -44,9 +44,9 @@ unverified orders :
 
             <tr>
                 <td>{{ $x->sender_name }}</td>
-                <td>{{ $x->amount }}</td>
+                <td>{{ \Illuminate\Support\Number::format($x->amount) }}</td>
                 <td>{{ $x->time }}</td>
-                <td>{{ $x->key == 1 ? "Rial" : "Lir"  }}</td>
+                <td>{{ $x->key == 1 ? "Toman" : "Lir"  }}</td>
                 <td><a href="{{ route('verification' , ['id' => $x->id
 //, 'user_id' => $x->user_id, 'key' => $x->key
 ]) }}"><button>V</button></a></td>

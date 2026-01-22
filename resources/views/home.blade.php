@@ -37,8 +37,16 @@
     here
 
     <style>
+        a {
+            color: aliceblue;
+        }
+        body {
+            background-color: #272e37;
+            color: aliceblue !important;
+        }
         table, th, td {
-            border:1px solid black;
+            border:1px solid aliceblue;
+            /*border:1px solid black;*/
             /*width: 10em;*/
             text-align: center;
             padding: .4rem;
@@ -142,8 +150,8 @@
     <a href="{{ route('profile') }}">About Us</a><br>
     <a href="{{ route('profile') }}">Statistics</a><br>
     <a href="{{ route('logout') }}">log out</a>
-    {{ \Illuminate\Support\Facades\Auth::user()->username }} username
-    {{ \Illuminate\Support\Facades\Auth::user()->id }} id
+{{--    {{ \Illuminate\Support\Facades\Auth::user()->username }} username--}}
+{{--    {{ \Illuminate\Support\Facades\Auth::user()->id }} id--}}
 @endauth
 <br>
 

@@ -26,12 +26,28 @@
     <h4>iban : {{ $user->iban }}</h4>
     <h4>ibanname : {{ $user->ibanname }}</h4>
     <h4>kart : {{ $user->kart }}</h4>
-    <h4>ircharge : {{ \Illuminate\Support\Number::format($user->ircharge) }}</h4>
-    <h4>trcharge : {{ \Illuminate\Support\Number::format($user->trcharge) }}</h4>
-    <h4>token : {{ $user->token }}</h4>
+    <br>
+
+    <style>
+        .alt1{
+            display: inline-block;
+            border: double 1px;
+        }
+    </style>
+    <div class="ALT" style="    display: inline-block;    border: dashed 1px;">
+        <div class="alt1">
+        <h4 style="display: inline-block ; margin: 0 2rem">ircharge <br> {{ \Illuminate\Support\Number::format($user->ircharge) }}</h4>
+        </div>
+        <div class="alt1">
+        <h4 style="display: inline-block ; margin: 0 2rem">trcharge <br> {{ \Illuminate\Support\Number::format($user->trcharge) }}</h4>
+    </div>
+        <div class="alt1">
+        <h4 style="display: inline-block ; margin: 0 2rem">token <br> {{ $user->token }}</h4>
+</div>
+    </div>
 
 </div>
-
+<br><br>
 <a href="{{ route('profile.edit') }}">Edit</a>
 
 @if (session('action'))
