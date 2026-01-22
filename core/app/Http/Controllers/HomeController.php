@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -12,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
 //        dd('kk');
-
+//            Artisan::call('migrate');
 
 //        session()->flash('success', 'dwm');
         if (Auth::check()) {

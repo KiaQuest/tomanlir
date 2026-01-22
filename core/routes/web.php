@@ -6,6 +6,7 @@ use App\Http\Controllers\WalletController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,3 +63,12 @@ Route::post('/login',[\App\Http\Controllers\userController::class,'loginact'])->
 
 Route::get('/logout',[\App\Http\Controllers\userController::class,'logout'])->name('logout');
 
+Route::get('/clearex', function() {
+    return 'ss';
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    return 'Application cache has been cleared , <br> Routes cache has been cleared
+    , <br> Config cache has been cleared , <br> View cache has been cleared';
+});
