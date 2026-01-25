@@ -24,9 +24,9 @@ class HomeController extends Controller
         }else{
 
 
-            $data1 = Order::where('active' , 0)->where('key' , 1)->get();
-//            $data1 = Order::where('active' , 0)->where('key' , 1)->paginate(1);
-            $data2 = Order::where('active' , 0)->where('key' , 2)->get();
+//            $data1 = Order::where('active' , 0)->where('key' , 1)->get();
+            $data1 = Order::where('active' , 0)->where('key' , 1)->paginate(8);
+            $data2 = Order::where('active' , 0)->where('key' , 2)->paginate(8);
         }
 
         return view('home' , compact('data1' , 'data2'));
